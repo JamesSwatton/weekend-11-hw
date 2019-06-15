@@ -12,7 +12,19 @@ public class Player {
         this.hand.add(card);
     }
 
-    public ArrayList<Card> showHand(){
-        return this.hand;
+    public int numOfCards(){
+        return this.hand.size();
+    }
+
+    public int getHandTotal() {
+        int handTotal = 0;
+        for(Card card : this.hand){
+            handTotal += card.getValue();
+        }
+        return handTotal;
+    }
+
+    public void emptyHand() {
+        this.hand.clear();
     }
 }

@@ -26,7 +26,7 @@ public class DealerTest {
     public void canDealOwnHand(){
         dealer.dealCardToSelf(deck);
         dealer.dealCardToSelf(deck);
-        assertEquals(2, dealer.showHand().size());
+        assertEquals(2, dealer.numOfCards());
     }
 
     @Test

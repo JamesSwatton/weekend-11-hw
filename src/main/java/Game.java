@@ -4,6 +4,7 @@ public class Game {
     Dealer dealer;
     Player player;
 
+
     public Game(Deck deck, Dealer dealer, Player player){
         this.deck = deck;
         this.dealer = dealer;
@@ -16,5 +17,19 @@ public class Game {
             player.addCardToHand(playerCard);
             dealer.dealCardToSelf(deck);
         }
+    }
+
+    public Object checkWinner(){
+        Object winner = player;
+        if(player.getHandTotal() > dealer.getHandTotal()){
+            return winner;
+        }else{
+            winner = dealer;
+            return winner;
+        }
+    }
+
+    public boolean checkDraw(){
+        return (player.getHandTotal() == dealer.getHandTotal());
     }
 }
