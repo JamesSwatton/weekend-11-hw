@@ -28,7 +28,7 @@ public class Deck {
         return cards.size();
     }
 
-    public Object dealCard() {
+    public Card dealCard() {
         return cards.remove(0);
     }
 }
