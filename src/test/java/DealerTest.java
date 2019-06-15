@@ -28,4 +28,11 @@ public class DealerTest {
         dealer.dealCardToSelf(deck);
         assertEquals(2, dealer.showHand().size());
     }
+
+    @Test
+    public void canRevealCard(){
+        dealer.dealCardToSelf(deck);
+        dealer.dealCardToSelf(deck);
+        assertNotNull(dealer.revealCard());
+    }
 }

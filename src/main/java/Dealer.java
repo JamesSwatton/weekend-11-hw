@@ -20,4 +20,8 @@ public class Dealer {
     public ArrayList<Card> showHand(){
         return this.hand;
     }
+
+    public Card revealCard() {
+        return this.hand.get(0);
+    }
 }
