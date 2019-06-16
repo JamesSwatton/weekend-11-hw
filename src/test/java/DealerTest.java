@@ -35,4 +35,12 @@ public class DealerTest {
         dealer.dealCardToSelf(deck);
         assertNotNull(dealer.revealCard());
     }
+
+    @Test
+    public void canStick(){
+        Card card1 = new Card(SuitType.CLUBS, RankType.TEN);
+        dealer.addCardToHand(card1);
+        dealer.addCardToHand(card1);
+        assertEquals(StatusType.STICK, dealer.getStickOrTwist());
+    }
 }

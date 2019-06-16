@@ -21,7 +21,7 @@ public class GameTest {
 
     @Test
     public void canDealOpeningHand(){
-        game.dealOpeningHand();
+        game.dealHand();
         assertEquals(2, player.numOfCards());
         assertEquals(2, dealer.numOfCards());
     }
@@ -37,14 +37,38 @@ public class GameTest {
         assertEquals(true, game.checkDraw());
     }
 
+//    @Test
+//    public void canCheckForWinner(){
+//        Card card1 = new Card(SuitType.CLUBS, RankType.TEN);
+//        Card card2 = new Card(SuitType.CLUBS, RankType.TWO);
+//        player.addCardToHand(card1);
+//        player.addCardToHand(card2);
+//        dealer.addCardToHand(card2);
+//        dealer.addCardToHand(card2);
+//        assertTrue(game.checkWinner() instanceof Player);
+//    }
+
     @Test
-    public void canCheckForWinner(){
+    public void willOnlyCheckForWinnerIfBothPlayerAndDealerHaveStuck(){
         Card card1 = new Card(SuitType.CLUBS, RankType.TEN);
         Card card2 = new Card(SuitType.CLUBS, RankType.TWO);
         player.addCardToHand(card1);
         player.addCardToHand(card2);
-        dealer.addCardToHand(card2);
-        dealer.addCardToHand(card2);
-        assertTrue(game.checkWinner() instanceof Player);
+        dealer.addCardToHand(card1);
+        dealer.addCardToHand(card1);
+        player.setStickOrTwist(StatusType.STICK);
+        assertTrue(game.checkWinner() instanceof Dealer);
     }
+
+    @Test
+    public void canCheckForDrawIfPlayerAndDealerHaveBlackjack(){
+        Card card1 = new Card(SuitType.CLUBS, RankType.TEN);
+        Card card2 = new Card(SuitType.CLUBS, RankType.ACE);
+        player.addCardToHand(card1);
+        player.addCardToHand(card2);
+        dealer.addCardToHand(card1);
+        dealer.addCardToHand(card2);
+        assertTrue(game.checkDraw());
+    }
+
 }
