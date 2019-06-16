@@ -2,16 +2,22 @@ import java.util.ArrayList;
 
 public class Player {
 
+    String name;
     ArrayList<Card> hand;
     StatusType stickOrTwist;
     boolean isBust;
     boolean hasBlackjack;
 
-    public Player(){
+    public Player(String name){
+        this.name = name;
         this.hand = new ArrayList<Card>();
         this.stickOrTwist = StatusType.TWIST;
         this.isBust = false;
         this.hasBlackjack = false;
+    }
+
+    public String getName(){
+        return this.name;
     }
 
     public void addCardToHand(Card card){

@@ -14,7 +14,12 @@ public class PlayerTest {
     public void before(){
         deck = new Deck();
         dealer = new Dealer();
-        player = new Player();
+        player = new Player("Frank");
+    }
+
+    @Test
+    public void canGetName(){
+        assertEquals("Frank", player.getName());
     }
 
     @Test
